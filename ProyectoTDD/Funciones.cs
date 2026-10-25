@@ -3,13 +3,40 @@ namespace ProyectoTDD
 {
     public static class Funciones
     {
+        private const long ErrorFactorial = -1;
+
+        /// <summary>
+        /// Calcula el factorial de n.
+        /// Devuelve -1 si n es negativo; el factorial de 0 es 1.
+        /// </summary>
         public static long CalcularFactorial(int n)
         {
-            throw new NotImplementedException();
+            if (n < 0)
+            {
+                return ErrorFactorial;
+            }
+
+            long resultado = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                resultado *= i;
+            }
+
+            return resultado;
         }
+
+        private const int LongitudMinima = 8;
+        private const char CaracterObligatorio = '#';
+
+        /// <summary>
+        /// Una contraseña es válida si no es null ni vacía, tiene al menos
+        /// 8 caracteres y contiene el carácter '#'.
+        /// </summary>
         public static bool EsContrasenyaValida(string contrasenya)
         {
-            throw new NotImplementedException();
+            return !string.IsNullOrEmpty(contrasenya)
+                && contrasenya.Length >= LongitudMinima
+                && contrasenya.Contains(CaracterObligatorio);
         }
     }
 }
