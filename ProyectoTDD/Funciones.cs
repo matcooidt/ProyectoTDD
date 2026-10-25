@@ -24,9 +24,19 @@ namespace ProyectoTDD
 
             return resultado;
         }
+
+        private const int LongitudMinima = 8;
+        private const char CaracterObligatorio = '#';
+
+        /// <summary>
+        /// Una contraseña es válida si no es null ni vacía, tiene al menos
+        /// 8 caracteres y contiene el carácter '#'.
+        /// </summary>
         public static bool EsContrasenyaValida(string contrasenya)
         {
-            throw new NotImplementedException();
+            return !string.IsNullOrEmpty(contrasenya)
+                && contrasenya.Length >= LongitudMinima
+                && contrasenya.Contains(CaracterObligatorio);
         }
     }
 }
